@@ -1,0 +1,154 @@
+\documentclass[12pt]{article}
+\usepackage[left=2cm, right=2cm, top=3cm, bottom=3cm]{geometry}
+\usepackage{fontspec}
+\usepackage{url}
+\usepackage{parskip} 
+
+\setmainfont{Barlow} % Cambiar la fuente principal a Arial
+
+\usepackage{listings}
+\usepackage{color}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\lstset{frame=tb,
+  language=Java,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+
+\title{Revisión de una Metodología para la Extracción, Limpieza y Organización de Datos SQL con Programación Declarativa en Python para el Desarrollo de Análisis de Datos Descriptivos.}
+
+\begin{document}
+\maketitle
+
+\section{Procedimientos ETL}
+
+Recordemos que los procedimientos ETL constan de Extract, Transform y Load, los cuales nos dan la pauta a seguir para seguir el ciclo de la Ingeniería de Datos. De esta forma seguimos una metodología establecida y evitamos estar trabajando sin una dirección específica.
+
+\vspace{12pt}
+
+En este ejemplo, se utilizará la base de datos de Sakila, la cual es una base de datos ejemplo proporcionada por MySQL que es utilizada comúnmente para propósitos educativos, demostraciones y pruebas. Sakila simula una base de datos de una tienda de alquiler de películas, similar a la cadena de alquiler de vídeos Blockbuster que solía existir.
+
+\vspace{12pt}
+
+Sakila contiene tablas que representan películas, actores, clientes, tiendas, alquileres, etc.
+
+\vspace{12pt}
+
+Para hacer uso de ella, hemos descargado el archivo script SQL a través de la página oficial de MySQL: \url{https://dev.mysql.com/doc/index-other.html}.
+
+\vspace{12pt}
+
+Ahora para instalar la base de datos podremos utilizar los siguientes comandos de MySQL.
+
+\vspace{12pt}
+\begin{lstlisting}[language=Bash]
+    
+    $ mysql -u root -p sakila < sakila-schema.sql
+    $ mysql -u root -p sakila < sakila-data.sql
+    
+\end{lstlisting}
+\vspace{12pt}
+
+Después de haber ejecutado estos comandos, deberíamos ser capaces de ver la base de datos instalada en nuestro sistema, para comprobarlo podemos ejecutar:
+
+\vspace{12pt}
+\begin{lstlisting}[language=Bash]
+    
+  mysql> USE sakila;
+  Database changed
+  mysql> SHOW TABLES;
+  +----------------------------+
+  | Tables_in_sakila                |
+  +----------------------------+
+  | actor                           |
+  | actor_info                      |
+  | address                         |
+  | category                        |
+  | city                            |
+  | country                         |
+  | customer                        |
+  | customer_list                   |
+  | film                            |
+  | film_actor                      |
+  | film_category                   |
+  | film_list                       |
+  | film_text                       |
+  | inventory                       |
+  | language                        |
+  | nicer_but_slower_film_list      |
+  | payment                         |
+  | rental                          |
+  | sales_by_film_category          |
+  | sales_by_store                  |
+  | staff                           |
+  | staff_list                      |
+  | store                           |
+  +----------------------------+
+
+    
+\end{lstlisting}
+\vspace{12pt}
+
+Ahora, con ello podremos comenzar a trabajar nuestro procedimiento ETL.
+
+Primeramente, es necesario determinar que incógnita queremos responder sobre los datos disponibles. Esto variará dependiendo de la base de datos y los tipos de datos que ésta almacene. Para este caso, intentaremos responder las preguntas:
+
+\begin{itemize}
+  \item \textbf{Patrones de alquier:} ¿Cuáles son las películas más alquiladas?
+  \item \textbf{Clientes frecuentes:} ¿Quiénes son los clientes más frecuentes?, ¿Existe alguna relación entre la cantidad de películas alquiladas y la ubicación de las tiendas?
+  \item \textbf{Popularidad de las categorías de películas:} ¿Cuáles son las categorías de películas más populares entre los clientes?
+  \item \textbf{Ingresos por película:} ¿Cuáles son las películas que generan más ingresos en términos de alquiler?
+\end{itemize}
+
+\subsection{Extract.}
+
+Para nuestro ejemplo, utilizaremos Python con SQL Alchemy.
+
+\vspace{12pt}
+\begin{lstlisting}[language=Python]
+    
+    # utilizar sqlalchemy
+    
+\end{lstlisting}
+\vspace{12pt}
+
+\subsection{Transform.}
+
+Ahora bien, después de haber extraído los datos, es necesario organizarlos de manera que sea más sencillo utilizarlos para el análisis de datos.
+
+\vspace{12pt}
+\begin{lstlisting}[language=Python]
+    
+    # utilizar pandas
+    
+\end{lstlisting}
+\vspace{12pt}
+
+\subsection{Load.}
+
+Una vez que se haya realizado la Organización de los datos, es una buena idea es crear un acceso a esta información de manera que no sea necesario acceder a la información y organizarla nuevamente, para esto son muy útiles las vistas (views) de SQL.
+
+\vspace{12pt}
+\begin{lstlisting}[language=Python]
+    
+    # utilizar sqlalchemy
+    
+\end{lstlisting}
+\vspace{12pt}
+
+
+
+\end{document}
