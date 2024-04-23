@@ -373,6 +373,73 @@ Para no dejar cabos sueltos, podemos observar el resultado de la consulta a cont
 \end{lstlisting}
 \vspace{12pt}
 
+\section{Programación Declarativa con Python}
+La programación declarativa es un paradigma de programación donde el código describe qué debe hacerse en lugar de cómo hacerlo. En este enfoque, el programador declara o especifica el resultado deseado y confía en que el sistema encuentre la mejor manera de lograrlo (librerías, frameworks, plugins, etc.).
+
+Sin embargo, para entender un poco mejor el enfoque de la Programación Declarativa, es necesario contrastar con la Programación Imperativa.
+
+\subsection{Programación Declarativa.}
+En la programación funcional, se \textbf{enfatiza} el uso de funciones puras y evita los efectos secundarios. 
+
+\begin{lstlisting}[language=Python]
+  # Ejemplo de map y lambda
+  numbers = [1, 2, 3, 4, 5]
+  squared = list(map(lambda x: x ** 2, numbers))
+  print(squared)  # Output: [1, 4, 9, 16, 25]
+\end{lstlisting}
+\vspace{12pt}
+\newpage
+\subsection{Expresiones Generadoras.}
+Las expresiones generadoras permiten construir secuencias de manera perezosa (lazy) utilizando la sintaxis de compresión de listas.
+
+\begin{lstlisting}[language=Python]
+  # Ejemplo de map y lambda
+  numbers = [1, 2, 3, 4, 5]
+  squared = list(map(lambda x: x ** 2, numbers))
+  print(squared)  # Output: [1, 4, 9, 16, 25]
+\end{lstlisting}
+La expresión (x ** 2 fro x in numbres) crea un generador que produce los cuadrados de los números en la lista numbers, cuando se solicita.
+
+\vspace{12pt}
+
+\subsection{SQL con SQLAlchemy}
+
+Gracias al alto nivel declarativo de SQLAlchemy, podemos construir instrucciones en Python muy similares a las instrucciones SQL.
+
+\begin{lstlisting}[language=Python]
+  from sqlalchemy import create_engine, Column, Integer, String
+  from sqlalchemy.ext.declarative import declarative_base
+  from sqlalchemy.orm import sessionmaker
+
+  # Crear una clase que representa una tabla
+  Base = declarative_base()
+
+  class User(Base):
+      __tablename__ = 'users'
+      id = Column(Integer, primary_key=True)
+      name = Column(String)
+      age = Column(Integer)
+
+  # Crear una instancia de motor y conectar a la base de datos
+  engine = create_engine('mysql://usuario:contraseña@localhost/nombre_base_de_datos', echo=True)
+
+  Base.metadata.create_all(engine)
+
+  # Crear una sesión para interactuar con la base de datos
+  Session = sessionmaker(bind=engine)
+  session = Session()
+
+  # Insertar un nuevo usuario
+  new_user = User(name='John', age=30)
+  session.add(new_user)
+  session.commit()
+
+  # Consultar usuarios
+  users = session.query(User).all()
+  for user in users:
+      print(user.name, user.age)
+
+\end{lstlisting}
 
 
 \end{document}
