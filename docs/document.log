@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2024.3.18)  22 APR 2024 22:21
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2024.3.18)  22 APR 2024 23:33
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -306,14 +306,24 @@ File: sakila_eer.png Graphic file (type bmp)
 <sakila_eer.png>
  (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2023/02/27 1.9 listings language file
-) [7] [8] [9] [10] [11] (./document.aux) ) 
+) [7] [8] [9] [10]
+Overfull \hbox (14.47728pt too wide) in paragraph at lines 444--444
+[]\TU/Barlow(0)/b/n/17.28 Análisis de Datos Descriptivos con Python, Pandas y SQLAlchemy 
+ []
+
+[11]
+Overfull \hbox (0.52939pt too wide) in paragraph at lines 506--507
+\TU/Barlow(0)/m/n/12 Eliminar valores faltantes, corregir errores, manejar valores atípicos, etc. Combinar datos de múlti-
+ []
+
+[12] [13] (./document.aux) ) 
 Here is how much of TeX's memory you used:
- 6738 strings out of 477887
- 154935 string characters out of 5827408
+ 6786 strings out of 477887
+ 155527 string characters out of 5827408
  1929018 words of memory out of 6000000
- 26863 multiletter control sequences out of 15000+600000
- 516144 words of font info for 70 fonts, out of 8000000 for 9000
+ 26910 multiletter control sequences out of 15000+600000
+ 516152 words of font info for 71 fonts, out of 8000000 for 9000
  430 hyphenation exceptions out of 8191
  72i,6n,85p,708b,1761s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on document.xdv (11 pages, 168756 bytes).
+Output written on document.xdv (13 pages, 223708 bytes).

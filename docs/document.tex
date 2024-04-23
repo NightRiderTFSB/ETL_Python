@@ -441,5 +441,115 @@ Gracias al alto nivel declarativo de SQLAlchemy, podemos construir instrucciones
 
 \end{lstlisting}
 
+\section{Análisis de Datos Descriptivos con Python, Pandas y SQLAlchemy}
+
+Establezcamos que tenemos una base de datos MySQL llamada \textit{ventas} que contiene una tabla \textit{orders} con información sobre las ventas realizadas en una tienda. Queremos realizar un análisis descriptivo de estas ventas.
+
+\begin{lstlisting}[language=Python]
+  from sqlalchemy import create_engine
+  import pandas as pd
+  import matplotlib.pyplot as plt
+  # Conectar a la base de datos MySQL
+  engine = create_engine('mysql://usuario:contraseña@localhost/ventas')
+
+  # Consulta SQL para obtener datos de la tabla 'orders'
+  query = "SELECT * FROM orders"
+
+  # Cargar los datos en un DataFrame
+  df = pd.read_sql(query, engine)
+
+  # Mostrar las primeras filas del DataFrame
+  print("Primeras filas del DataFrame:")
+  print(df.head())
+
+  # Resumen estadístico de las columnas numéricas
+  print("\nResumen estadístico:")
+  print(df.describe())
+
+  # Conteo de valores únicos en la columna 'product_id'
+  print("\nConteo de valores únicos de 'product_id':")
+  print(df['product_id'].value_counts())
+
+\end{lstlisting}
+
+\section{Procedimiento KDD}
+
+El procedimiento KDD o Descubrimiento de Conocimiento en Bases de Datos, es un enfoque sistemático para descubrir patrones interesantes y conocimiento útil a partir de grandes conjuntos de datos. 
+
+\subsection{Entendimiento del negocio}
+
+Comprender los objetivos y requisitos del negocio para definir el problema que queremos resolver. Explorar y familiarizarse con los datos disponibles, identificar las fuentes de datos, entender su estructura y calidad.
+
+\begin{lstlisting}[language=SQL]
+  # Usando SQL para explorar la estructura de la base de datos
+  SHOW TABLES;
+  DESCRIBE nombre_tabla;
+  SELECT * FROM nombre_tabla LIMIT 5;
+\end{lstlisting}
+\vspace{12pt}
+
+
+\begin{lstlisting}[language=Python]
+  # Usando Python para cargar los datos y explorar su contenido
+  import pandas as pd
+  from sqlalchemy import create_engine
+
+  # Conexión a la base de datos MySQL
+  engine = create_engine('mysql://usuario:contraseña@localhost/base_datos')
+  df = pd.read_sql("SELECT * FROM nombre_tabla", engine)
+  print(df.head())
+\end{lstlisting}
+
+
+\subsection{Preprocesamiento de datos}
+
+Eliminar valores faltantes, corregir errores, manejar valores atípicos, etc. Combinar datos de múltiples fuentes si es necesario. Convertir los datos en un formato adecuado para el análisis, normalizar variables, etc. Reducir la cantidad de variables manteniendo la información relevante.
+
+\begin{lstlisting}[language=SQL]
+  # Limpieza y transformación de datos usando SQL
+  UPDATE nombre_tabla SET columna = valor WHERE condición;
+  DELETE FROM nombre_tabla WHERE condición;
+\end{lstlisting}
+\vspace{12pt}
+
+
+\begin{lstlisting}[language=Python]
+  # Preprocesamiento más complejo usando pandas
+  df['columna'] = df['columna'].fillna(df['columna'].mean())
+  df['columna_normalizada'] = (df['columna'] - df['columna'].min()) / (df['columna'].max() - df['columna'].min())
+\end{lstlisting}
+
+\subsection{Minería de datos}
+
+Elegir algoritmos de minería de datos adecuados según los objetivos del análisis. Aplicar técnicas como clustering, clasificación, regresión, asociación, etc. Evaluar y validar los modelos generados para asegurar su calidad y relevancia.
+
+\begin{lstlisting}[language=SQL]
+  # Consultas SQL para filtrar y transformar datos según sea necesario
+  SELECT * FROM nombre_tabla WHERE condición;
+  SELECT COUNT(*) FROM nombre_tabla GROUP BY columna;
+\end{lstlisting}
+\vspace{12pt}
+
+\subsection{Interpretación y Evaluación de Resultados}
+
+nterpretar los patrones descubiertos en términos del negocio y los objetivos del análisis. Evaluar la utilidad y validez de los resultados obtenidos. Comunicar los hallazgos de manera clara y efectiva a las partes interesadas. 
+
+\begin{lstlisting}[language=SQL]
+  # Consultas SQL para obtener datos adicionales o realizar análisis ad-hoc
+  SELECT * FROM nombre_tabla WHERE columna > valor;
+  SELECT AVG(columna) FROM nombre_tabla WHERE condición;
+\end{lstlisting}
+\vspace{12pt}
+
+\begin{lstlisting}[language=Python]
+  # Visualización y análisis de resultados en Python
+  import matplotlib.pyplot as plt
+  plt.scatter(df['columna1'], df['columna2'], c=df['cluster'], cmap='viridis')
+  plt.xlabel('Columna 1')
+  plt.ylabel('Columna 2')
+  plt.title('Clustering Result')
+  plt.show()
+\end{lstlisting}
+
 
 \end{document}

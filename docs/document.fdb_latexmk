@@ -1,11 +1,11 @@
 # Fdb version 4
-["xdvipdfmx"] 1713846083.74317 "document.xdv" "document.pdf" "document" 1713846083.99998 0
-  "document.xdv" 1713846083.70351 168756 1a62fa9cae5668d3864488a61d5af5f1 "xelatex"
+["xdvipdfmx"] 1713850402.07196 "document.xdv" "document.pdf" "document" 1713850402.32963 0
+  "document.xdv" 1713850402.03915 223708 92ef4e23e540037431b5d0e007671dbb "xelatex"
   (generated)
   "document.pdf"
   (rewritten before read)
-["xelatex"] 1713846083.28491 "/home/starboyc00l/ITSPR 8vo/ETL - Python - Tesis/docs/document.tex" "document.xdv" "document" 1713846083.99946 0
-  "/home/starboyc00l/ITSPR 8vo/ETL - Python - Tesis/docs/document.tex" 1713846082.61451 17289 cf760ca7142bd8091eda1156c43f839a ""
+["xelatex"] 1713850401.59642 "/home/starboyc00l/ITSPR 8vo/ETL - Python - Tesis/docs/document.tex" "document.xdv" "document" 1713850402.32912 0
+  "/home/starboyc00l/ITSPR 8vo/ETL - Python - Tesis/docs/document.tex" 1713850400.62817 21674 225fb7322dc746cabc1d0cceb474f640 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm" 1136768653 1524 4414a8315f39513458b80dfc63bff03a ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm" 1136768653 1512 f21f83efb36853c0b70002322c1ab3ad ""
@@ -51,8 +51,8 @@
   "/usr/share/texlive/texmf-dist/tex/latex/url/url.sty" 1388531844 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1689984000 40900 887e0dc8cac988a9e9c574af364cf837 ""
   "/var/lib/texmf/web2c/xetex/xelatex.fmt" 1710799009 10240195 96a3f89329290597eeac69f384e66d51 ""
-  "document.aux" 1713846083.70251 1393 623a664e2b51e679a3c1ddb3db8e5a40 "xelatex"
-  "document.tex" 1713846082.61451 17289 cf760ca7142bd8091eda1156c43f839a ""
+  "document.aux" 1713850402.03815 2137 2247f27ec6d8f26e95583559af01ab09 "xelatex"
+  "document.tex" 1713850400.62817 21674 225fb7322dc746cabc1d0cceb474f640 ""
   "sakila_eer.png" 1713842823.40162 223205 366cacb6d147812db625cd7ab94b6642 ""
   (generated)
   "document.aux"
