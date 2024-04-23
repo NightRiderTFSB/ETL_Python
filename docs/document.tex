@@ -2,7 +2,8 @@
 \usepackage[left=2cm, right=2cm, top=3cm, bottom=3cm]{geometry}
 \usepackage{fontspec}
 \usepackage{url}
-\usepackage{parskip} 
+\usepackage{parskip}
+\usepackage{graphicx}
 
 \setmainfont{Barlow} % Cambiar la fuente principal a Arial
 
@@ -282,15 +283,95 @@ De esta forma, ya tenemos la librería instalada y haremos uso de ella de la sig
 \end{lstlisting}
 \vspace{12pt}
 
+\section{SQL Para Manejo de Datos.}
 
+SQL - Structured Query language (lenguaje estructurado de consultas), es un lenguaje diseñado para administrar y manipular bases de datos relacionales, permite realizar una variedad de operaciones en los datos, tales como consultar, insertar, actualizar y eliminar registros en una base de datos.
 
+En este caso, se pretende utilizar MySQL, el cual es un sistema de gestión de base de datos de código abierto que utiliza SQL como lenguaje de consulta. Este motor de base de datos es el candidato perfecto a utilizar con Python debido a la gran compatibilidad que estos tiene gracias a las librerías y dependencias para su conexión. Además, es uno de los motores de base de datos más populares en el mundo, utilizado por empresas de todos los tamaños (lo cual nos beneficia para el desarrollo de análisis de datos), y en una amplia gama de aplicaciones, desde sitios web simples hasta sistemas empresariales complejos.
 
+Además, la razón principal de usar SQL es debido a su gran nivel de \textbf{capacidad de ser declarativo} (lo veremos un poco más adelante).
 
+Para el propósito de este documento, se utilizará una base de datos llamada Sakila, la cual es ofrecida por la página oficial de MySQL para fines educativos. 
 
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=1.0\textwidth]{sakila_eer.png} 
+  \caption{Base datos sakila.}
+  \label{fig:ejemplo}
+\end{figure}
+\vspace{12pt}
 
+Ahora, se mostrará una consulta que devuelve el título de la película, el número total de alquileres, la duración promedio de la renta o alquiler de la película, y los ingresos totales generados por la película. Los resultados están ordenados por ingresos totales en orden descendente y se limitan a las 10 películas con mayores ingresos.
 
+\begin{lstlisting}[language=SQL]
+  SELECT
+    film.title AS film_title,
+    COUNT(*) AS rental_count,
+    AVG(DATEDIFF(rental.return_date, rental.rental_date)) AS avg_rental_duration,
+    SUM(payment.amount) AS total_revenue
+  FROM
+    rental
+  JOIN
+    inventory ON rental.inventory_id = inventory.inventory_id
+  JOIN
+    film ON inventory.film_id = film.film_id
+  JOIN
+    payment ON rental.rental_id = payment.rental_id
+  GROUP BY
+    film.film_id
+  ORDER BY
+    total_revenue DESC
+  LIMIT 10;
 
+\end{lstlisting}
+\vspace{12pt}
 
+A simple vista puede verse muy complejo, sin embargo, es mucho más sencillo de lo que parece.
+
+Si intentamos traducir un poco más literal lo que la consulta intenta extraer sería algo como:
+
+\begin{lstlisting}[language=SQL]
+  SELECCIONAR
+      pelicula.titulo COMO titulo_pelicula,
+      CONTAR(*) COMO cantidad_alquileres,
+      PROM(DATEDIFF(alquiler.fecha_devolucion, alquiler.fecha_alquiler)) COMO duracion_promedio_alquiler,
+      SUM(pago.monto) COMO ingreso_total
+  DESDE
+      alquiler
+  UNIR
+      inventario EN alquiler.id_inventario = inventario.id_inventario
+  UNIR
+      pelicula EN inventario.id_pelicula = pelicula.id_pelicula
+  UNIR
+      pago EN alquiler.id_alquiler = pago.id_alquiler
+  AGRUPAR POR
+      pelicula.id_pelicula
+  ORDENAR POR
+      ingreso_total DESC
+  LIMITAR 10;
+
+\end{lstlisting}
+\vspace{12pt}
+\newpage
+Para no dejar cabos sueltos, podemos observar el resultado de la consulta a continuación:
+
+\begin{lstlisting}[language=Bash]
+  +-------------------+--------------+---------------------+---------------+
+| film_title             | rental_count | avg_rental_duration | total_revenue   |
++--------------------+--------------+----------------------+---------------+
+| TELEGRAPH VOYAGE       |           27   |                 6.4815 |            231.73 |
+| WIFE TURN              |           31   |                 4.8387 |            223.69 |
+| ZORRO ARK              |           31   |                 4.5161 |            214.69 |
+| GOODFELLAS SALUTE      |           31   |                 5.2581 |            209.69 |
+| SATURDAY LAMBS         |           28   |                 5.1786 |            204.72 |
+| TITANS JERK            |           29   |                 5.5714 |            201.71 |
+| TORQUE BOUND           |           27   |                 5.0000 |            198.72 |
+| HARRY IDAHO            |           30   |                 5.5172 |            195.70 |
+| INNOCENT USUAL         |           26   |                 4.9615 |            191.74 |
+| HUSTLER PARTY          |           22   |                 6.5000 |            190.78 |
++-------------------+--------------+---------------------+---------------+
+\end{lstlisting}
+\vspace{12pt}
 
 
 

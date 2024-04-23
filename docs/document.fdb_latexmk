@@ -1,11 +1,11 @@
 # Fdb version 4
-["xdvipdfmx"] 1713841888.95341 "document.xdv" "document.pdf" "document" 1713841888.99165 0
-  "document.xdv" 1713841888.91974 96856 916170580f010a8d783401d4f7b9584d "xelatex"
+["xdvipdfmx"] 1713844690.43316 "document.xdv" "document.pdf" "document" 1713844690.69095 0
+  "document.xdv" 1713844690.40061 137252 47d7e4eeca1c28990b0dcf181cba4e2c "xelatex"
   (generated)
   "document.pdf"
   (rewritten before read)
-["xelatex"] 1713841888.42865 "/home/starboyc00l/ITSPR 8vo/ETL - Python - Tesis/docs/document.tex" "document.xdv" "document" 1713841888.99116 0
-  "/home/starboyc00l/ITSPR 8vo/ETL - Python - Tesis/docs/document.tex" 1713841888.23874 10186 f67e9ccb41c23a0f17f9ba285414f8e2 ""
+["xelatex"] 1713844689.99092 "/home/starboyc00l/ITSPR 8vo/ETL - Python - Tesis/docs/document.tex" "document.xdv" "document" 1713844690.69044 0
+  "/home/starboyc00l/ITSPR 8vo/ETL - Python - Tesis/docs/document.tex" 1713844689.80561 14717 f0db6040678e59aa1992c0af58f42f3c ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm" 1136768653 1524 4414a8315f39513458b80dfc63bff03a ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm" 1136768653 1512 f21f83efb36853c0b70002322c1ab3ad ""
@@ -30,10 +30,14 @@
   "/usr/share/texlive/texmf-dist/tex/latex/fontspec/fontspec.sty" 1642282977 1656 7e824878bad4df5a3e8bba4e463d9126 ""
   "/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty" 1578002852 41601 9cf6c5257b1bc7af01a58859749dd37a ""
   "/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg" 1459978653 1213 620bba36b25224fa9b7e1ccb4ecb76fd ""
+  "/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg" 1465944070 1224 978390e9c2234eab29404bc21b268d1e ""
   "/usr/share/texlive/texmf-dist/tex/latex/graphics-def/xetex.def" 1663965824 14788 1dde73f396dd97d88c838bee2a352abe ""
   "/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty" 1654720880 7233 e46ce9241d2b2ca2a78155475fdd557a ""
+  "/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty" 1654720880 18387 8f900a490197ebaf93c02ae9476d4b09 ""
+  "/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty" 1654720880 8010 a8d949cbdbc5c983593827c9eec252e1 ""
   "/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty" 1654720880 2671 7e67d78d9b88c845599a85b2d41f2e39 ""
   "/usr/share/texlive/texmf-dist/tex/latex/graphics/mathcolor.ltx" 1667332637 2885 9c645d672ae17285bba324998918efd8 ""
+  "/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty" 1654720880 4023 293ea1c16429fc0c4cf605f4da1791a9 ""
   "/usr/share/texlive/texmf-dist/tex/latex/kvoptions/kvoptions.sty" 1655478651 22555 6d8e155cfef6d82c3d5c742fea7c992e ""
   "/usr/share/texlive/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty" 1665067230 13815 760b0c02f691ea230f5359c4e1de23a7 ""
   "/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-xetex.def" 1673989714 32346 879686206fa618f4f5073ad4bd48feda ""
@@ -47,8 +51,9 @@
   "/usr/share/texlive/texmf-dist/tex/latex/url/url.sty" 1388531844 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1689984000 40900 887e0dc8cac988a9e9c574af364cf837 ""
   "/var/lib/texmf/web2c/xetex/xelatex.fmt" 1710799009 10240195 96a3f89329290597eeac69f384e66d51 ""
-  "document.aux" 1713841888.91874 654 cd0c35a9cccb714580ea45339bc31121 "xelatex"
-  "document.tex" 1713841888.23874 10186 f67e9ccb41c23a0f17f9ba285414f8e2 ""
+  "document.aux" 1713844690.39961 919 174b08a64bdb325eb8daf8a8f25f3321 "xelatex"
+  "document.tex" 1713844689.80561 14717 f0db6040678e59aa1992c0af58f42f3c ""
+  "sakila_eer.png" 1713842823.40162 223205 366cacb6d147812db625cd7ab94b6642 ""
   (generated)
   "document.aux"
   "document.log"
