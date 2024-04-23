@@ -108,9 +108,6 @@ Primeramente, es necesario determinar que incógnita queremos responder sobre lo
 
 \begin{itemize}
   \item \textbf{Patrones de alquier:} ¿Cuáles son las películas más alquiladas?
-  \item \textbf{Clientes frecuentes:} ¿Quiénes son los clientes más frecuentes?, ¿Existe alguna relación entre la cantidad de películas alquiladas y la ubicación de las tiendas?
-  \item \textbf{Popularidad de las categorías de películas:} ¿Cuáles son las categorías de películas más populares entre los clientes?
-  \item \textbf{Ingresos por película:} ¿Cuáles son las películas que generan más ingresos en términos de alquiler?
 \end{itemize}
 
 Una vez planteadas las incógnitas, podemos determinas que tablas serán relevantes para nuestro análisis, las cuales son:
@@ -122,24 +119,6 @@ Una vez planteadas las incógnitas, podemos determinas que tablas serán relevan
     \item inventory
     \item film
   \end{enumerate}
-  \item \textbf{Clientes frecuentes:}
-  \begin{enumerate}
-    \item customer
-    \item rental
-    \item inventory
-    \item store
-  \end{enumerate}
-  \item \textbf{Popularidad de las categorías de películas:}
-  \begin{enumerate}
-    \item film\textunderscore{}category
-    \item category
-  \end{enumerate}
-  \item \textbf{Ingresos por película:}
-  \begin{enumerate}
-    \item film
-    \item rental
-    \item payment
-  \end{enumerate}
 \end{itemize}
 
 \subsection{Extract.}
@@ -149,10 +128,28 @@ Para nuestro ejemplo, utilizaremos Python con SQL Alchemy.
 \vspace{12pt}
 \begin{lstlisting}[language=Python]
     
-    # utilizar sqlalchemy
+  from sqlalchemy import create_engine, MetaData, Table, select, func
+
+  # Configurar la conexión a la base de datos
+  engine = create_engine('mysql://starboy:starboyc00l@localhost/sakila')
+  metadata = MetaData()
+  
+  # Asociar el motor a la Metadata después de su creación
+  metadata.bind = engine
+  
+  # Reflejar las tablas
+  metadata.reflect(bind=engine)
+  
+  # Obtener las tablas reflejadas
+  rental_table = metadata.tables['rental']
+  inventory_table = metadata.tables['inventory']
+  film_table = metadata.tables['film']
     
 \end{lstlisting}
 \vspace{12pt}
+
+En este código hemos creado la conexión respectiva a nuestra base de datos de manera local, donde generamos un "motor" de base de datos que nos permitirá enlazarnos al motor de base de datos de MySQL, podemos pensar en él cómo una "reflejo" de la base de datos original.
+
 
 \subsection{Transform.}
 
@@ -161,8 +158,54 @@ Ahora bien, después de haber extraído los datos, es necesario organizarlos de 
 \vspace{12pt}
 \begin{lstlisting}[language=Python]
     
-    # utilizar pandas
+  # Construir la consulta para obtener las películas más alquiladas
+  # Obtener las 10 películas más alquiladas
+  query = (
+      select(film_table.c.title, film_table.c.film_id, func.count(rental_table.c.inventory_id).label('rental_count'))
+      .select_from(
+          rental_table.join(inventory_table, rental_table.c.inventory_id == inventory_table.c.inventory_id)
+          .join(film_table, inventory_table.c.film_id == film_table.c.film_id)
+      )
+      .group_by(film_table.c.film_id)
+      .order_by(func.count(rental_table.c.inventory_id).desc())
+      .limit(10)
+  )
     
+\end{lstlisting}
+\vspace{12pt}
+
+De esta forma, en query se almacenarán los datos extraídos de la consulta en la base de datos, de manera que con SQL Alchemy podemos escribir consultas de SQL a través del lenguaje de programación Python, agregando una capa de programación declarativa.
+\vspace{12pt}
+
+Para ver los resultados de la consulta anterior podemos realizar lo siguiente:
+
+\vspace{12pt}
+\begin{lstlisting}[language=Python]
+  # Ejecutar la consulta y obtener los resultados
+  with engine.connect() as connection:
+    result = connection.execute(query)
+    for row in result:
+        print(row)
+\end{lstlisting}
+\vspace{12pt}
+
+Como respuesta tendríamos que ver algo como lo siguiente:
+
+\vspace{12pt}
+\begin{lstlisting}[language=Bash]
+  $ python3 main.py 
+
+  metadata.reflect(bind=engine)
+  ('BUCKET BROTHERHOOD', 103, 34)
+  ('ROCKETEER MOTHER', 738, 33)
+  ('RIDGEMONT SUBMARINE', 730, 32)
+  ('GRIT CLOCKWORK', 382, 32)
+  ('SCALAWAG DUCK', 767, 32)
+  ('JUGGLER HARDLY', 489, 32)
+  ('FORWARD TEMPLE', 331, 32)
+  ('HOBBIT ALIEN', 418, 31)
+  ('ROBBERS JOON', 735, 31)
+  ('ZORRO ARK', 1000, 31)
 \end{lstlisting}
 \vspace{12pt}
 
@@ -173,7 +216,22 @@ Una vez que se haya realizado la Organización de los datos, es una buena idea e
 \vspace{12pt}
 \begin{lstlisting}[language=Python]
     
-    # utilizar sqlalchemy
+  # Crear una vista en la base de datos a partir de la consulta
+  view_name = "top_rented_films"
+  create_view_query = text(f"CREATE OR REPLACE VIEW {view_name} AS {str(query.compile(engine, compile_kwargs={'literal_binds': True}))}")
+  
+  with engine.begin() as conn:
+      conn.execute(create_view_query)
+      print(f"Vista '{view_name}' creada exitosamente.")
+  
+  # Consultar la información de la vista
+  view = Table(view_name, metadata, autoload_with=engine)
+  
+  # Consultar la información de la vista
+  with engine.connect() as connection:
+      result = connection.execute(select(view))
+      for row in result:
+          print(row)
     
 \end{lstlisting}
 \vspace{12pt}
