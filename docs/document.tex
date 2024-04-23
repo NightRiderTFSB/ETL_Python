@@ -236,6 +236,62 @@ Una vez que se haya realizado la Organización de los datos, es una buena idea e
 \end{lstlisting}
 \vspace{12pt}
 
+\section{Python y sus librerías}
+
+Python cuenta con muchas librerías para manejo de información y para diferentes actividades, por ahora nos centraremos en una específicamente, la cual es SQLAlchemy.
+
+\subsection{SQLAlchemy}
+
+SQLAlchemy es un conjunto de herramientas de software y una biblioteca de Python que facilita la comunicación entre la aplicación de Python y las bases de datos relacionales. 
+
+En otras palabras, es un \textbf{Mapeador de Objetos Relaciones} o ORM, el cual traduce las clases de Python a tablas de bases de datos relacionales y viceversa. Proporcionando una capa de abstracción sobre la base de datos que permite escribir consultas utilizando lenguaje Python en lugar de SQL.
+
+Para instalar esta librería, requiere de ciertas dependencias, gracias a la versatilidad de Linux (Fedora), podemos hacerlo de la siguiente manera:
+
+\begin{lstlisting}[language=Bash]
+  $ sudo yum install python3-devel mysql-devel gcc
+  $ pip install mysqlclient
+\end{lstlisting}
+
+Ahora, para manejar correctamente un proyecto de python ejecutaremos los siguientes comandos en una carpeta donde almacenaremos nuestro proyecto.
+
+\begin{lstlisting}[language=Bash]
+  $ mkdir proyecto
+  $ cd proyecto
+  /proyecto$ python3 -m venv venv
+  /proyecto$ touch main.py
+\end{lstlisting}
+\vspace{12pt}
+
+Con esto, ya tendremos la estructura básica de nuestro proyecto, pero será necesario utilizar en entorno virtual de Python recién creado para instalar la librería de SQLAlchemy, lo podemos realizar de la siguiente forma.
+
+\begin{lstlisting}[language=Bash]
+  /proyecto$ source venv/bin/activate
+  (venv) /proyecto$ pip install sqlalchemy
+\end{lstlisting}
+\vspace{12pt}
+
+De esta forma, ya tenemos la librería instalada y haremos uso de ella de la siguiente forma.
+
+\begin{lstlisting}[language=Python]
+  from sqlalchemy import create_engin
+
+  # Configurar la conexión a la base de datos
+
+  engine = create_engine('mysql://user:password@localhost/sakila')
+\end{lstlisting}
+\vspace{12pt}
+
+
+
+
+
+
+
+
+
+
+
 
 
 \end{document}

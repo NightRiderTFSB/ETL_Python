@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2024.3.18)  22 APR 2024 20:38
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2024.3.18)  22 APR 2024 21:11
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -288,14 +288,14 @@ Overfull \hbox (25.62009pt too wide) in paragraph at lines 107--108
 
 [2] (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2023/02/27 1.9 listings language file
-) [3] [4] [5] (./document.aux) ) 
+) [3] [4] [5] [6] (./document.aux) ) 
 Here is how much of TeX's memory you used:
- 6147 strings out of 477887
- 146679 string characters out of 5827408
+ 6162 strings out of 477887
+ 146842 string characters out of 5827408
  1891018 words of memory out of 6000000
- 26288 multiletter control sequences out of 15000+600000
+ 26303 multiletter control sequences out of 15000+600000
  516144 words of font info for 70 fonts, out of 8000000 for 9000
  430 hyphenation exceptions out of 8191
  72i,6n,85p,557b,1585s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on document.xdv (5 pages, 77924 bytes).
+Output written on document.xdv (6 pages, 96856 bytes).
