@@ -1,11 +1,11 @@
 # Fdb version 4
-["xdvipdfmx"] 1713833177.68522 "document.xdv" "document.pdf" "document" 1713833177.71885 0
-  "document.xdv" 1713833177.65522 37208 6a70d840c9230e4f7eb8d2fc700c069e "xelatex"
+["xdvipdfmx"] 1713834500.49989 "document.xdv" "document.pdf" "document" 1713834500.53128 0
+  "document.xdv" 1713834500.46875 41932 08fcd80b840bccd8ee8a7750ce9536cd "xelatex"
   (generated)
   "document.pdf"
   (rewritten before read)
-["xelatex"] 1713833177.2393 "/home/starboyc00l/ITSPR 8vo/ETL - Python - Tesis/docs/document.tex" "document.xdv" "document" 1713833177.71837 0
-  "/home/starboyc00l/ITSPR 8vo/ETL - Python - Tesis/docs/document.tex" 1713833177.05722 5287 f32e6005472800d39d0dea52f5827162 ""
+["xelatex"] 1713834500.07871 "/home/starboyc00l/ITSPR 8vo/ETL - Python - Tesis/docs/document.tex" "document.xdv" "document" 1713834500.53079 0
+  "/home/starboyc00l/ITSPR 8vo/ETL - Python - Tesis/docs/document.tex" 1713834499.91375 6008 123cb7219645b025cb3f4391ce2a2803 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm" 1136768653 1524 4414a8315f39513458b80dfc63bff03a ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm" 1136768653 1512 f21f83efb36853c0b70002322c1ab3ad ""
@@ -47,8 +47,8 @@
   "/usr/share/texlive/texmf-dist/tex/latex/url/url.sty" 1388531844 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1689984000 40900 887e0dc8cac988a9e9c574af364cf837 ""
   "/var/lib/texmf/web2c/xetex/xelatex.fmt" 1710799009 10240195 96a3f89329290597eeac69f384e66d51 ""
-  "document.aux" 1713833177.65522 440 5f1b99e6968a8d73b0947f20bb873e99 "xelatex"
-  "document.tex" 1713833177.05722 5287 f32e6005472800d39d0dea52f5827162 ""
+  "document.aux" 1713834500.46875 440 411e741bec0b31047b699c8cf6afd93d "xelatex"
+  "document.tex" 1713834499.91375 6008 123cb7219645b025cb3f4391ce2a2803 ""
   (generated)
   "document.aux"
   "document.log"

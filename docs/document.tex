@@ -113,6 +113,35 @@ Primeramente, es necesario determinar que incógnita queremos responder sobre lo
   \item \textbf{Ingresos por película:} ¿Cuáles son las películas que generan más ingresos en términos de alquiler?
 \end{itemize}
 
+Una vez planteadas las incógnitas, podemos determinas que tablas serán relevantes para nuestro análisis, las cuales son:
+
+\begin{itemize}
+  \item \textbf{Patrones de alquier:}
+  \begin{enumerate}
+    \item rental
+    \item inventory
+    \item film
+  \end{enumerate}
+  \item \textbf{Clientes frecuentes:}
+  \begin{enumerate}
+    \item customer
+    \item rental
+    \item inventory
+    \item store
+  \end{enumerate}
+  \item \textbf{Popularidad de las categorías de películas:}
+  \begin{enumerate}
+    \item film\textunderscore{}category
+    \item category
+  \end{enumerate}
+  \item \textbf{Ingresos por película:}
+  \begin{enumerate}
+    \item film
+    \item rental
+    \item payment
+  \end{enumerate}
+\end{itemize}
+
 \subsection{Extract.}
 
 Para nuestro ejemplo, utilizaremos Python con SQL Alchemy.
